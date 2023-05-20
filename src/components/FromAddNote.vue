@@ -1,7 +1,7 @@
-<template>
+<!-- <template>
   <List v-for="(mapInComponent, index) in requestToMakeCard" :key="index" :text="title" />
   <div
-    v-show="hiddenFrom"
+    v-show=""
     class="bg-gray-100 rounded-md p-2 w-64 inline-block box-border align-top whitespace-nowrap"
   >
     <div>
@@ -13,7 +13,7 @@
       />
     </div>
     <div class="flex mt-2 w-full">
-      <button @click="addCard" class="bg-blue-400 rounded-md px-3 py-1">Add list</button>
+      <button @click.prevent="addCard" class="bg-blue-400 rounded-md px-3 py-1">Add list</button>
       <span class="mx-1"></span>
       <button @click="deleteForm">
         <Close />
@@ -32,8 +32,8 @@ import List from './List.vue'
 const title = ref('')
 
 const store = useCounterStore()
-const { requestToMakeCard, hiddenFrom } = storeToRefs(store)
-const { deleteForm, addCard } = store
+// const { requestToMakeCard, hiddenFrom } = storeToRefs(store)
+// const { deleteForm, addCard } = store
 </script>
 
 <style scoped>
@@ -41,4 +41,4 @@ const { deleteForm, addCard } = store
   padding-bottom: 2px;
   padding-top: 2px;
 }
-</style>
+</style> -->

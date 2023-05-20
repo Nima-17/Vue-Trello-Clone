@@ -6,8 +6,8 @@ import board from './components/board.vue'
 <template>
   <Default>
     <!-- boardCanvas -->
-    <div class="h-80">
-      <board />
+    <div class="h-96 p-3">
+      <board :test="1" />
     </div>
   </Default>
 </template>
