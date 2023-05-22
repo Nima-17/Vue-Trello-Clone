@@ -4,10 +4,12 @@
   >
     <div>
       <ListWrapper>
-        <List v-for="(List, index) of requestToMakeList" :key="index" />
+        <List v-for="list of lists" :key="list.id" :cards="list.cards" :list-id="list.id" />
       </ListWrapper>
     </div>
+
     <span class="mx-2"></span>
+
     <div>
       <button @click="addList" class="transition-all bg-button-glasses px-5 py-1">
         <span class="text-xl">+</span>
@@ -16,14 +18,16 @@
     </div>
   </section>
 </template>
-<script setup lang="ts">
-import ListWrapper from './ListWrapper.vue'
-import List from './List.vue'
-import { useTrelloStore } from '@/stores/trelloStore'
 
-const trelloStore = useTrelloStore()
-const { requestToMakeList, addList } = trelloStore
+<script setup lang="ts">
+import List from './List.vue'
+import ListWrapper from './ListWrapper.vue'
+import { useTrelloStore } from '@/stores/trelloStore'
+import { computed } from 'vue'
+
+const { lists, addList } = useTrelloStore()
 </script>
+
 <style scoped>
 .bg-button-glasses {
   /* From https://css.glass */
