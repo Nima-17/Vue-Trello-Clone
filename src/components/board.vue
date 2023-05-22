@@ -2,11 +2,9 @@
   <section
     class="flex overflow-x-auto overflow-y-hidden absolute select-none whitespace-nowrap px-2"
   >
-    <div class="flex">
+    <div>
       <ListWrapper>
-        <List class="gap-3" v-for="(element, index) in requestToMakeList" :key="index">
-          <card v-for="(element, index) in requestToMakeCard" :is="element" :key="index"></card>
-        </List>
+        <List v-for="(List, index) of requestToMakeList" :key="index" />
       </ListWrapper>
     </div>
     <span class="mx-2"></span>
@@ -21,11 +19,10 @@
 <script setup lang="ts">
 import ListWrapper from './ListWrapper.vue'
 import List from './List.vue'
-import card from './card.vue'
 import { useTrelloStore } from '@/stores/trelloStore'
 
 const trelloStore = useTrelloStore()
-const { requestToMakeList, addList, requestToMakeCard } = trelloStore
+const { requestToMakeList, addList } = trelloStore
 </script>
 <style scoped>
 .bg-button-glasses {

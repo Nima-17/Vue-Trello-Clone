@@ -7,11 +7,15 @@
         type="text"
       />
     </div>
-    <div class="">
-      <slot></slot>
+    <div class="px-3 py-1">
+      <textarea
+        placeholder="Enter a title for this card..."
+        class="text-black outline-none rounded-lg max-h-20 px-2 py-1"
+        cols="29"
+      ></textarea>
     </div>
     <div class="flex transition-all items-center px-3 py-2">
-      <button @click="addCard" class="button px-3 rounded-md">
+      <button @click="" class="button px-3 rounded-md">
         <span class="text-xl">+</span>
         Add a card
       </button>
@@ -21,7 +25,7 @@
 <script setup lang="ts">
 import { useTrelloStore } from '@/stores/trelloStore'
 const trelloStore = useTrelloStore()
-const { addCard } = trelloStore
+const {} = trelloStore
 </script>
 <style>
 input {
