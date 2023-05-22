@@ -4,10 +4,7 @@ import board from './components/board.vue'
 </script>
 
 <template>
-  <Default>
-    <!-- boardCanvas -->
-    <div class="h-96 p-3">
-      <board :test="1" />
-    </div>
+  <Default class="h-screen flex-grow relative">
+    <board />
   </Default>
 </template>

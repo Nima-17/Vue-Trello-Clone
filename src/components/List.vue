@@ -1,28 +1,40 @@
 <template>
-  <!-- Top List -->
-  <div style="background: #e5e7eb" class="py-2 px-5 rounded-lg flex-col flex">
-    <div class="my-1">
+  <div class="inline-block h-fit bg-black rounded-lg whitespace-nowrap w-72">
+    <div class="px-3 py-2 transition-all">
       <input
-        type="text"
-        class="bg-transparent focus:bg-white text-black font-semibold p-1 outline-none rounded"
         placeholder="Enter list title..."
+        class="bg-transparent w-full rounded-sm outline-none transition-all border-transparent text-base px-2 font-semibold"
+        type="text"
       />
     </div>
-    <div>
-      <Task v-for="(element, index) in requestToMakeTask" :key="index" />
+    <div class="">
+      <slot></slot>
     </div>
-    <!-- Bottom List -->
-    <div class="text-gray-500 font-semibold my-1">
-      <button @click.passive="addTask">+ Add a card</button>
+    <div class="flex transition-all items-center px-3 py-2">
+      <button @click="addCard" class="button px-3 rounded-md">
+        <span class="text-xl">+</span>
+        Add a card
+      </button>
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import Task from './Task.vue'
-import { useCounterStore } from '@/stores/counter'
-const store = useCounterStore()
-const { addCard, addTask } = store
-const { requestToMakeTask } = storeToRefs(store)
+import { useTrelloStore } from '@/stores/trelloStore'
+const trelloStore = useTrelloStore()
+const { addCard } = trelloStore
 </script>
+<style>
+input {
+  color: white;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+input:focus {
+  border: 2px solid white;
+}
+
+.button:hover {
+  background: rgba(129, 129, 129, 0.56);
+}
+</style>
